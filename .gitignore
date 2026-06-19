@@ -1,0 +1,11 @@
+# Local Claude Code config (machine-specific)
+.claude/settings.local.json
+
+# Source resume kept local, not published to the public site
+# (contains a phone number we deliberately keep off the web)
+*.docx
+~$*.docx
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
