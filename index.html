@@ -15,7 +15,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robert Hickey &middot; Senior Data Analyst</title>
-  <meta name="description" content="Robert Hickey, Senior Data Analyst focused on analytics engineering and AI-assisted development. 18+ years turning raw data into decisions across e-commerce, fintech, and higher education." />
+  <meta name="description" content="Robert Hickey, Senior Data Analyst focused on analytics engineering and AI-assisted development, turning raw data into decisions across e-commerce, fintech, and higher education." />
   <meta name="author" content="Robert Hickey" />
   <meta name="theme-color" content="#030805" />
   <meta name="color-scheme" content="dark" />
@@ -23,7 +23,7 @@
   <!-- Open Graph / social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Robert Hickey &middot; Senior Data Analyst" />
-  <meta property="og:description" content="Senior Data Analyst focused on analytics engineering and AI-assisted development. 18+ years turning raw data into decisions." />
+  <meta property="og:description" content="Senior Data Analyst focused on analytics engineering and AI-assisted development, turning raw data into decisions." />
   <meta property="og:url" content="https://rfhickey.github.io/" />
   <meta property="og:image" content="https://rfhickey.github.io/assets/portrait.jpg" />
   <meta property="og:image:width" content="480" />
@@ -58,8 +58,8 @@
 
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <script src="script.js?v=3" defer></script>
 </head>
 
 <body>
@@ -232,7 +232,9 @@
         </div>
         <h1>ROBERT HICKEY</h1>
         <p class="headline">Senior Data Analyst &middot; Analytics Engineering &middot; AI-Assisted Development</p>
-        <p class="statusline">Sandy, Utah &middot; 18+ years turning raw data into decisions</p>
+        <!-- data-since anchors: JS renders current year minus anchor, so the
+             years of experience grow automatically; baked text is the no-JS fallback -->
+        <p class="statusline">Sandy, Utah &middot; <span data-since="2010">16</span>+ years turning raw data into decisions</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:rfhickey@gmail.com">Email me</a>
           <a class="btn" href="https://www.linkedin.com/in/hickeyrobert/" target="_blank" rel="noopener">LinkedIn</a>
@@ -262,17 +264,17 @@
             <span class="stat-sub">for a marketing analytics platform</span>
           </div>
           <div class="stat reveal">
-            <span class="stat-num"><b class="num" data-target="18">18</b>+</span>
+            <span class="stat-num"><b class="num" data-target="16" data-since="2010">16</b>+</span>
             <span class="stat-label">years working with data</span>
             <span class="stat-sub">across e-commerce, fintech, higher ed, and research</span>
           </div>
           <div class="stat reveal">
-            <span class="stat-num"><b class="num" data-target="8">8</b>+</span>
+            <span class="stat-num"><b class="num" data-target="8" data-since="2018">8</b>+</span>
             <span class="stat-label">years of SQL</span>
             <span class="stat-sub">PostgreSQL, Vertica, BigQuery, Snowflake</span>
           </div>
           <div class="stat reveal">
-            <span class="stat-num"><b class="num" data-target="4">4</b>+</span>
+            <span class="stat-num"><b class="num" data-target="4" data-since="2022">4</b>+</span>
             <span class="stat-label">years of Python</span>
             <span class="stat-sub">churn models, LLM fine-tuning, classification</span>
           </div>
@@ -330,6 +332,78 @@
               <li data-skills="sql,powerbi,databricks">Promoted from Associate Data Analyst within 6 months; built, deployed, and maintained <b class="metric">9</b> Power BI dashboards using SQL, Databricks, DAX, Power Query, row-level security, and scheduled refreshes.</li>
               <li>Automated student milestone tracking and interventions, and delivered analytics solutions across Dynamics 365, Salesforce, and Smartsheet.</li>
               <li data-skills="sql">Defined data requirements, mapped business processes, and led ad hoc analytics projects for leadership while supporting peers through SQL optimization and dashboard troubleshooting.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-wgu-assoc">
+            <h3>Associate Data Analyst &middot; Western Governors University</h3>
+            <p class="role-meta">Mar 2020 to Aug 2020 &middot; Salt Lake City, UT</p>
+            <ul>
+              <li data-skills="sql,powerbi,databricks">Developed Power BI dashboards with internal stakeholders, using SQL and Databricks to transform data warehouse data into metric-ready form.</li>
+              <li>Developed alpha and beta testing protocols, communication plans, and change-management support for new analytics products.</li>
+              <li data-skills="powerbi">Implemented row-level security and scheduled refresh cadences to deliver credential-based dashboard views.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-wgu-editor">
+            <h3>Assessment Editor &middot; Western Governors University</h3>
+            <p class="role-meta">Aug 2015 to Feb 2020 &middot; Salt Lake City, UT</p>
+            <ul>
+              <li>Copyedited student objective and performance assessments in accordance with psychometric standards, an in-house style guide, and The Chicago Manual of Style.</li>
+              <li>Analyzed team project data to inform management decisions about resource allocation, and provided feedback as part of the editor QA subgroup.</li>
+              <li>Coauthored a style guide for writing ADA-compliant alternate text descriptions of test items for students with visual impairments.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-crimson">
+            <h3>Academic Editor &middot; Crimson Interactive</h3>
+            <p class="role-meta">Apr 2015 to Feb 2019 &middot; remote</p>
+            <ul>
+              <li>Edited research papers and book manuscripts for scholars publishing in peer-reviewed, English-language journals.</li>
+              <li>Specialized in environmental, climate, energy, public, and agricultural economics, econometrics, and game theory.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-consultant">
+            <h3>Consultant &middot; Self-employed</h3>
+            <p class="role-meta">Dec 2010 to Aug 2018 &middot; global</p>
+            <ul>
+              <li>Wrote and edited popular science articles (including for the New Scientist), research papers, scientific project reports, and marketing copy.</li>
+              <li>Clients included graduate students, political parties, government ministries, and companies.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-simpol">
+            <h3>Blogger &middot; SIMPOL, The Simultaneous Policy</h3>
+            <p class="role-meta">Jan 2011 to Apr 2014 &middot; remote</p>
+            <ul>
+              <li>Wrote blog posts on the failure of the nation-state system to address global challenges.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-arc">
+            <h3>Project Officer &middot; Applied Research and Communications Fund</h3>
+            <p class="role-meta">Feb 2009 to Jun 2015 &middot; Bulgaria</p>
+            <ul>
+              <li>Performed quantitative and qualitative research and analyzed public policy challenges and opportunities.</li>
+              <li>Developed research reports, policy briefs, web content, and research proposals, and executed and monitored research projects.</li>
+              <li>Engaged with policy makers, academics, and international partners.</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-teacher">
+            <h3>English Teacher &middot; Eurostar and Educational Technologies high schools</h3>
+            <p class="role-meta">Dec 2007 to May 2009 &middot; Bulgaria</p>
+            <ul>
+              <li>Taught English to 7th and 8th grade students, including lesson planning and preparation for standardized exams (KET, PET, FCE, TOEFL, IELTS).</li>
+            </ul>
+          </article>
+
+          <article class="role reveal" id="role-vtag">
+            <h3>Consumer Assistance Program Associate &middot; Vermont Attorney General's Office</h3>
+            <p class="role-meta">Jan 2004 to May 2004 &middot; Burlington, VT</p>
+            <ul>
+              <li>Fielded phone calls from consumers, helping them file complaints against Vermont businesses and seek resolution.</li>
             </ul>
           </article>
 
@@ -397,7 +471,7 @@
       <div class="container">
         <h2 class="section-title" id="edu-title">Education &amp; certifications</h2>
         <ul class="seed-list">
-          <li class="reveal"><span class="seed-name">PhD, Energy Economics</span> <span class="seed-inst">International Business School, Bulgaria</span></li>
+          <li class="reveal"><span class="seed-name"><a href="assets/robert-hickey-phd-dissertation.pdf" target="_blank" rel="noopener">PhD, Energy Economics</a></span> <span class="seed-inst">International Business School, Bulgaria &middot; <a class="seed-link" href="assets/robert-hickey-phd-dissertation.pdf" target="_blank" rel="noopener">read the dissertation (PDF)</a></span></li>
           <li class="reveal"><span class="seed-name">MA, Public Policy and Governance</span> <span class="seed-inst">New Bulgarian University</span></li>
           <li class="reveal"><span class="seed-name">BA, European History and Political Science</span> <span class="seed-inst">University of Vermont</span></li>
           <li class="reveal"><span class="seed-name">Data Analyst Learning Path</span> <span class="seed-inst">Google Cloud Skills Boost</span></li>
@@ -451,7 +525,7 @@
   <!-- -------------------------------------------------------- footer -->
   <footer class="footer">
     <div class="container footer-inner">
-      <span>&copy; <span id="year">2026</span> Robert Hickey &middot; built by hand with HTML, CSS, and JavaScript</span>
+      <span>&copy; <span id="year">2026</span> Robert Hickey</span>
       <button id="console-open" class="head-btn" type="button" aria-label="Open console">$_</button>
     </div>
   </footer>

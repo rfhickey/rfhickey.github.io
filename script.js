@@ -88,6 +88,20 @@
     return { refresh: refresh };
   }
 
+  /* ------------------------------------------ auto-updating years */
+  function initYears() {
+    var now = new Date().getFullYear();
+    $$("[data-since]").forEach(function (el) {
+      var since = parseInt(el.getAttribute("data-since"), 10);
+      if (!isFinite(since)) return;
+      var baked = parseInt(el.textContent.replace(/[^0-9]/g, ""), 10);
+      var years = Math.max(isFinite(baked) ? baked : 0, now - since);
+      el.textContent = String(years);
+      /* keep the count-up animation ending on the fresh number */
+      if (el.hasAttribute("data-target")) el.setAttribute("data-target", String(years));
+    });
+  }
+
   /* ------------------------------------------------- scroll reveals */
   function initReveal() {
     var els = $$(".reveal");
@@ -252,11 +266,19 @@
         { role: "Senior Data Analyst", company: "Big Cartel", start_date: "2024-09", end_date: "present", location: "Salt Lake City, UT", highlight: "AI analysis of 33,000+ conversations at 66% lower query cost" },
         { role: "Product Analyst", company: "MX Technologies", start_date: "2024-06", end_date: "2024-09", location: "Lehi, UT", highlight: "Product Metrics Catalog and self-service Domo dashboards" },
         { role: "Data Analyst", company: "MX Technologies", start_date: "2022-05", end_date: "2024-06", location: "Lehi, UT", highlight: "merchant tagging across billions of transactions in BigQuery" },
-        { role: "Data Analyst", company: "Western Governors University", start_date: "2020-08", end_date: "2022-05", location: "Salt Lake City, UT", highlight: "9 Power BI dashboards, promoted from associate in 6 months" }
+        { role: "Data Analyst", company: "Western Governors University", start_date: "2020-08", end_date: "2022-05", location: "Salt Lake City, UT", highlight: "9 Power BI dashboards, promoted from associate in 6 months" },
+        { role: "Associate Data Analyst", company: "Western Governors University", start_date: "2020-03", end_date: "2020-08", location: "Salt Lake City, UT", highlight: "Power BI dashboards with row-level security" },
+        { role: "Assessment Editor", company: "Western Governors University", start_date: "2015-08", end_date: "2020-02", location: "Salt Lake City, UT", highlight: "psychometric copyediting, coauthored ADA alt-text style guide" },
+        { role: "Academic Editor", company: "Crimson Interactive", start_date: "2015-04", end_date: "2019-02", location: "remote", highlight: "economics manuscripts for peer-reviewed journals" },
+        { role: "Consultant", company: "Self-employed", start_date: "2010-12", end_date: "2018-08", location: "global", highlight: "science writing and editing, including for the New Scientist" },
+        { role: "Blogger", company: "SIMPOL, The Simultaneous Policy", start_date: "2011-01", end_date: "2014-04", location: "remote", highlight: "essays on global governance" },
+        { role: "Project Officer", company: "Applied Research and Communications Fund", start_date: "2009-02", end_date: "2015-06", location: "Bulgaria", highlight: "policy research, reports, and proposals" },
+        { role: "English Teacher", company: "Eurostar and Educational Technologies high schools", start_date: "2007-12", end_date: "2009-05", location: "Bulgaria", highlight: "exam prep: KET, PET, FCE, TOEFL, IELTS" },
+        { role: "Consumer Assistance Program Associate", company: "Vermont Attorney General's Office", start_date: "2004-01", end_date: "2004-05", location: "Burlington, VT", highlight: "consumer complaint intake and resolution" }
       ],
       skills: [
-        { column: "sql", type: "language", years: "8+", seen_in: "all roles" },
-        { column: "python", type: "language", years: "4+", seen_in: "Big Cartel" },
+        { column: "sql", type: "language", years: Math.max(8, new Date().getFullYear() - 2018) + "+", seen_in: "all roles" },
+        { column: "python", type: "language", years: Math.max(4, new Date().getFullYear() - 2022) + "+", seen_in: "Big Cartel" },
         { column: "regular_expressions", type: "language", years: "", seen_in: "MX" },
         { column: "snowflake", type: "warehouse", years: "", seen_in: "Big Cartel" },
         { column: "bigquery", type: "warehouse", years: "", seen_in: "MX, Big Cartel" },
@@ -527,6 +549,7 @@
 
   var inits = [
     initChrome,
+    initYears,
     function () { initMode(function () { scene.refresh(); }); },
     function () { scene = initScene() || scene; },
     initReveal,

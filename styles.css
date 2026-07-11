@@ -127,8 +127,8 @@ a:hover { text-decoration: underline; }
 }
 .layer {
   position: absolute;
-  opacity: 0.17;
-  filter: drop-shadow(0 0 6px rgba(0, 255, 65, 0.55));
+  opacity: 0.45;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 65, 0.8));
 }
 html.js .layer { will-change: transform; }
 @media (prefers-reduced-motion: reduce) {
@@ -155,7 +155,7 @@ html.js .layer-dash, html.js .layer-trend { display: block; }
   z-index: 1;
   pointer-events: none;
   background: radial-gradient(ellipse at 50% 18%,
-    transparent 0%, rgba(1, 4, 2, 0.45) 62%, rgba(1, 4, 2, 0.82) 100%);
+    transparent 0%, rgba(1, 4, 2, 0.28) 62%, rgba(1, 4, 2, 0.55) 100%);
 }
 #spot {
   position: fixed;
@@ -179,6 +179,7 @@ main, .footer { position: relative; z-index: 2; }
   top: 0;
   z-index: 50;
   background: color-mix(in srgb, var(--bg) 82%, transparent);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -336,6 +337,7 @@ section[id], #top { scroll-margin-top: 7.5rem; }
   display: grid;
   gap: 0.15rem;
   background: var(--panel);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -374,6 +376,7 @@ section[id], #top { scroll-margin-top: 7.5rem; }
 .role {
   position: relative;
   background: var(--panel);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -461,11 +464,12 @@ section[id], #top { scroll-margin-top: 7.5rem; }
 .seed-inst { color: var(--dim); font-size: 0.9rem; }
 
 /* ------------------------------------------------------------- contact */
-.exposures { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+.exposures { display: grid; gap: 0.9rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .exposure-card {
   display: grid;
   gap: 0.2rem;
   background: var(--panel);
+  -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -480,7 +484,7 @@ section[id], #top { scroll-margin-top: 7.5rem; }
   text-decoration: none;
 }
 .exposure-kind { color: var(--dim); font-size: 0.8rem; letter-spacing: 0.06em; }
-.exposure-url { color: var(--link); word-break: break-all; }
+.exposure-url { color: var(--link); font-size: 0.88rem; overflow-wrap: anywhere; }
 .print-row { margin: 1.75rem 0 0; }
 
 /* -------------------------------------------------------------- footer */
@@ -515,7 +519,7 @@ section[id], #top { scroll-margin-top: 7.5rem; }
   color: var(--dim);
   border-bottom: 1px solid var(--border);
 }
-.console-out { overflow-y: auto; padding: 0.6rem 1rem; flex: 1; }
+.console-out { overflow-y: auto; overflow-x: auto; padding: 0.6rem 1rem; flex: 1; }
 .console-out > div { white-space: pre-wrap; word-break: break-word; }
 .console-out .c-in { color: var(--dim); }
 .console-out .c-err { color: var(--accent); }

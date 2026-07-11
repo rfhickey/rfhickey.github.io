@@ -19,6 +19,7 @@ metric value is baked into the HTML and the scripts only decorate.
 | `assets/portrait.jpg` | Hero photo, also the og:image for social previews. |
 | `assets/favicon.png` / `assets/apple-touch-icon.png` | Site icons (the portrait photo). |
 | `assets/favicon.svg` | Old "RH" monogram icon, kept but no longer referenced. |
+| `assets/robert-hickey-phd-dissertation.pdf` | Doctoral dissertation, linked from the Education section. |
 | `.nojekyll` | Tells GitHub Pages to serve files as-is (skip Jekyll). |
 
 ## Interactive features
