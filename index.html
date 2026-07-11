@@ -1,62 +1,222 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
+<!-- follow the white rabbit: press / -->
 <!--
   ===========================================================================
-  Robert Hickey - personal site
+  Robert Hickey - personal site (neon edition)
   ===========================================================================
-  Plain HTML/CSS, no build step. Content sourced from Robert's resume.
-  Edit any section below and push to deploy. The one section left for you to
-  fill is "Interests" (search "todo") since the resume did not cover it.
-  Phone number is intentionally omitted for privacy; add it back if you wish.
+  Cinematic Matrix-green resume: parallax neon data artwork, backlit portrait,
+  neon glass panels. Plain HTML/CSS/vanilla JS, no build step. Deploys via
+  GitHub Pages on push. With JavaScript disabled the page is still a
+  complete, readable resume. Phone number is intentionally omitted.
   ===========================================================================
 -->
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robert Hickey &middot; Senior Data Analyst</title>
-  <meta name="description" content="Robert Hickey, Senior Data Analyst with 18+ years of experience across NGOs, higher education, fintech, and e-commerce. I load, clean, transform, and find patterns in data to help businesses make better decisions." />
+  <meta name="description" content="Robert Hickey, Senior Data Analyst focused on analytics engineering and AI-assisted development. 18+ years turning raw data into decisions across e-commerce, fintech, and higher education." />
   <meta name="author" content="Robert Hickey" />
+  <meta name="theme-color" content="#030805" />
+  <meta name="color-scheme" content="dark" />
 
   <!-- Open Graph / social preview -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Robert Hickey &middot; Senior Data Analyst" />
-  <meta property="og:description" content="Senior Data Analyst with 18+ years of experience. I load, clean, transform, and find patterns in data to help businesses make better decisions." />
+  <meta property="og:description" content="Senior Data Analyst focused on analytics engineering and AI-assisted development. 18+ years turning raw data into decisions." />
   <meta property="og:url" content="https://rfhickey.github.io/" />
+  <meta property="og:image" content="https://rfhickey.github.io/assets/portrait.jpg" />
+  <meta property="og:image:width" content="480" />
+  <meta property="og:image:height" content="480" />
   <meta name="twitter:card" content="summary" />
 
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Robert Hickey",
+    "jobTitle": "Senior Data Analyst",
+    "worksFor": { "@type": "Organization", "name": "Big Cartel" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Sandy", "addressRegion": "UT", "addressCountry": "US" },
+    "email": "mailto:rfhickey@gmail.com",
+    "image": "https://rfhickey.github.io/assets/portrait.jpg",
+    "url": "https://rfhickey.github.io/",
+    "sameAs": ["https://www.linkedin.com/in/hickeyrobert/", "https://github.com/rfhickey"]
+  }
+  </script>
+
+  <!-- Apply saved recruiter mode before first paint (the only inline script). -->
+  <script>
+    try {
+      if (localStorage.getItem("rh-mode") === "plain") {
+        document.documentElement.setAttribute("data-theme", "plain");
+        var tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute("content", "#f7f8f7");
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
 </head>
 
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ------------------------------------------------------------- nav -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <a class="nav-brand" href="#top">
-        <img src="assets/favicon.svg" alt="" aria-hidden="true" />
-        Robert Hickey
-      </a>
-      <nav class="nav-links" aria-label="Section navigation">
-        <a href="#about">About</a>
+  <!-- Neon backdrop: data artwork that drifts at different speeds on scroll -->
+  <div id="scene" aria-hidden="true">
+
+    <!-- table lineage graph -->
+    <div class="layer layer-lineage" data-at="0.04" data-travel="1.1">
+      <svg viewBox="0 0 640 360" fill="none" stroke="#00ff41">
+        <g stroke-width="1.5" stroke-opacity="0.7">
+          <rect x="20" y="40" width="110" height="34" rx="8"/>
+          <rect x="20" y="150" width="110" height="34" rx="8"/>
+          <rect x="20" y="260" width="110" height="34" rx="8"/>
+          <rect x="250" y="95" width="110" height="34" rx="8"/>
+          <rect x="250" y="205" width="110" height="34" rx="8"/>
+          <rect x="480" y="150" width="110" height="34" rx="8"/>
+        </g>
+        <g stroke-width="1.5" stroke-opacity="0.4">
+          <path d="M130 57 C 190 57, 190 112, 250 112"/>
+          <path d="M130 167 C 190 167, 190 112, 250 112"/>
+          <path d="M130 167 C 190 167, 190 222, 250 222"/>
+          <path d="M130 277 C 190 277, 190 222, 250 222"/>
+          <path d="M360 112 C 420 112, 420 167, 480 167"/>
+          <path d="M360 222 C 420 222, 420 167, 480 167"/>
+        </g>
+        <g stroke-width="2" stroke-opacity="0.35" stroke-linecap="round">
+          <path d="M34 53 h48 M34 61 h30"/>
+          <path d="M34 163 h48 M34 171 h30"/>
+          <path d="M34 273 h48 M34 281 h30"/>
+          <path d="M264 108 h48 M264 116 h30"/>
+          <path d="M264 218 h48 M264 226 h30"/>
+          <path d="M494 163 h48 M494 171 h30"/>
+        </g>
+        <g fill="#00ff41" fill-opacity="0.8" stroke="none">
+          <circle cx="130" cy="57" r="3"/><circle cx="130" cy="167" r="3"/><circle cx="130" cy="277" r="3"/>
+          <circle cx="250" cy="112" r="3"/><circle cx="250" cy="222" r="3"/>
+          <circle cx="360" cy="112" r="3"/><circle cx="360" cy="222" r="3"/>
+          <circle cx="480" cy="167" r="3"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- dashboard with charts -->
+    <div class="layer layer-dash" data-at="0.32" data-travel="1.7">
+      <svg viewBox="0 0 640 420" fill="none" stroke="#00ff41">
+        <rect x="10" y="10" width="620" height="400" rx="12" stroke-width="1.5" stroke-opacity="0.7"/>
+        <path d="M10 48 H630" stroke-width="1.5" stroke-opacity="0.4"/>
+        <g fill="#00ff41" fill-opacity="0.7" stroke="none">
+          <circle cx="32" cy="29" r="4"/><circle cx="48" cy="29" r="4"/><circle cx="64" cy="29" r="4"/>
+        </g>
+        <g stroke-width="1.5" stroke-opacity="0.55">
+          <rect x="30" y="70" width="180" height="70" rx="8"/>
+          <rect x="240" y="70" width="180" height="70" rx="8"/>
+          <rect x="450" y="70" width="160" height="70" rx="8"/>
+        </g>
+        <g stroke-width="2" stroke-opacity="0.4" stroke-linecap="round">
+          <path d="M46 92 h60 M46 118 h36"/>
+          <path d="M256 92 h60 M256 118 h36"/>
+          <path d="M466 92 h50 M466 118 h30"/>
+        </g>
+        <g stroke-width="1.5" stroke-opacity="0.35">
+          <path d="M30 390 H310 M30 390 V180"/>
+        </g>
+        <g fill="#00ff41" fill-opacity="0.14" stroke-width="1.5" stroke-opacity="0.8">
+          <rect x="48" y="300" width="28" height="90" rx="3"/>
+          <rect x="90" y="260" width="28" height="130" rx="3"/>
+          <rect x="132" y="320" width="28" height="70" rx="3"/>
+          <rect x="174" y="230" width="28" height="160" rx="3"/>
+          <rect x="216" y="280" width="28" height="110" rx="3"/>
+          <rect x="258" y="205" width="28" height="185" rx="3"/>
+        </g>
+        <g stroke-width="2" stroke-opacity="0.8" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="345,290 390,250 430,268 475,215 520,232 565,185 610,200"/>
+        </g>
+        <polyline points="345,320 390,300 430,312 475,282 520,296 565,262 610,275"
+                  stroke-width="1.5" stroke-opacity="0.35" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="480" cy="368" r="34" stroke-width="10" stroke-opacity="0.25"/>
+        <circle cx="480" cy="368" r="34" stroke-width="10" stroke-opacity="0.8"
+                stroke-dasharray="150 220" transform="rotate(-90 480 368)"/>
+      </svg>
+    </div>
+
+    <!-- big trend chart -->
+    <div class="layer layer-trend" data-at="0.62" data-travel="2.1">
+      <svg viewBox="0 0 700 300" fill="none" stroke="#00ff41">
+        <g stroke-width="1" stroke-opacity="0.18">
+          <path d="M40 60 H680 M40 120 H680 M40 180 H680 M40 240 H680"/>
+          <path d="M168 20 V260 M296 20 V260 M424 20 V260 M552 20 V260"/>
+        </g>
+        <path d="M40 20 V260 H680" stroke-width="1.5" stroke-opacity="0.4"/>
+        <polyline points="40,230 120,205 200,215 280,170 360,182 440,130 520,145 600,88 680,60"
+                  stroke-width="2.5" stroke-opacity="0.85" stroke-linecap="round" stroke-linejoin="round"/>
+        <g fill="#00ff41" fill-opacity="0.9" stroke="none">
+          <circle cx="120" cy="205" r="4"/><circle cx="280" cy="170" r="4"/>
+          <circle cx="440" cy="130" r="4"/><circle cx="600" cy="88" r="4"/>
+        </g>
+        <polyline points="40,250 120,240 200,246 280,222 360,230 440,200 520,208 600,178 680,165"
+                  stroke-width="1.5" stroke-opacity="0.3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <!-- schema tables and a scatter plot -->
+    <div class="layer layer-schema" data-at="0.9" data-travel="1.4">
+      <svg viewBox="0 0 640 380" fill="none" stroke="#00ff41">
+        <g stroke-width="1.5" stroke-opacity="0.6">
+          <rect x="20" y="30" width="150" height="110" rx="8"/>
+          <rect x="20" y="230" width="150" height="110" rx="8"/>
+          <rect x="240" y="130" width="150" height="110" rx="8"/>
+        </g>
+        <g stroke-width="1.5" stroke-opacity="0.35">
+          <path d="M20 62 H170 M20 262 H170 M240 162 H390"/>
+        </g>
+        <g stroke-width="2" stroke-opacity="0.35" stroke-linecap="round">
+          <path d="M34 84 h70 M34 104 h50 M34 122 h60"/>
+          <path d="M34 284 h70 M34 304 h50 M34 322 h60"/>
+          <path d="M254 184 h70 M254 204 h50 M254 222 h60"/>
+        </g>
+        <g stroke-width="1.5" stroke-opacity="0.4">
+          <path d="M170 85 C 205 85, 205 185, 240 185"/>
+          <path d="M170 285 C 205 285, 205 185, 240 185"/>
+        </g>
+        <g fill="#00ff41" fill-opacity="0.8" stroke="none">
+          <circle cx="170" cy="85" r="3"/><circle cx="170" cy="285" r="3"/><circle cx="240" cy="185" r="3"/>
+        </g>
+        <path d="M430 40 V330 H620" stroke-width="1.5" stroke-opacity="0.4"/>
+        <path d="M440 310 L610 90" stroke-width="1.5" stroke-opacity="0.3" stroke-dasharray="6 6"/>
+        <g fill="#00ff41" stroke="none">
+          <circle cx="455" cy="295" r="4" fill-opacity="0.5"/><circle cx="470" cy="270" r="4" fill-opacity="0.8"/>
+          <circle cx="488" cy="285" r="4" fill-opacity="0.4"/><circle cx="502" cy="240" r="4" fill-opacity="0.7"/>
+          <circle cx="520" cy="225" r="4" fill-opacity="0.9"/><circle cx="531" cy="248" r="4" fill-opacity="0.4"/>
+          <circle cx="548" cy="195" r="4" fill-opacity="0.7"/><circle cx="561" cy="175" r="4" fill-opacity="0.5"/>
+          <circle cx="577" cy="152" r="4" fill-opacity="0.8"/><circle cx="590" cy="132" r="4" fill-opacity="0.6"/>
+          <circle cx="603" cy="118" r="4" fill-opacity="0.9"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <div id="vignette" aria-hidden="true"></div>
+  <div id="spot" aria-hidden="true"></div>
+
+  <!-- ------------------------------------------------------------ header -->
+  <header class="site-head">
+    <div class="container head-inner">
+      <a class="brand" href="#top">Robert Hickey</a>
+      <nav class="site-nav" aria-label="Section navigation">
+        <a href="#metrics">Numbers</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
+        <a href="#origin">Story</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button class="theme-toggle" id="theme-toggle" type="button"
-              aria-label="Toggle light and dark theme" title="Toggle theme">
-        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-        </svg>
-        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-        </svg>
-      </button>
+      <button id="mode-toggle" class="head-btn" type="button" aria-pressed="false">recruiter mode</button>
+      <button class="head-btn" type="button" data-print>print</button>
     </div>
   </header>
 
@@ -65,57 +225,57 @@
 
     <!-- ---------------------------------------------------------- hero -->
     <section class="hero" aria-label="Introduction">
-      <div class="container hero-content">
-        <p class="eyebrow">Hi, I'm</p>
-        <h1>Robert Hickey</h1>
-        <p class="tagline">I load, clean, transform, and find patterns in data to help businesses make better decisions.</p>
-        <div class="meta">
-          <span aria-label="Role">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M9 8h1m-1 4h1m4-4h1m-1 4h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"/></svg>
-            Senior Data Analyst at Big Cartel
-          </span>
-          <span aria-label="Location">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            Sandy, Utah
-          </span>
+      <div class="container hero-inner">
+        <div class="halo">
+          <img class="portrait" src="assets/portrait.jpg" alt="Robert Hickey"
+               width="480" height="480" decoding="async" />
         </div>
+        <h1>ROBERT HICKEY</h1>
+        <p class="headline">Senior Data Analyst &middot; Analytics Engineering &middot; AI-Assisted Development</p>
+        <p class="statusline">Sandy, Utah &middot; 18+ years turning raw data into decisions</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
-            Get in touch
-          </a>
-          <a class="btn" href="https://www.linkedin.com/in/hickeyrobert/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.5H5.86v7.84h2.48zM7.1 9.4a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88zm11.24 8.94v-4.3c0-2.3-1.23-3.37-2.87-3.37a2.48 2.48 0 0 0-2.24 1.23v-1.06h-2.48c.03.7 0 7.84 0 7.84h2.48v-4.38c0-.23.02-.46.09-.62.18-.46.6-.94 1.32-.94.93 0 1.3.71 1.3 1.75v4.19h2.48z"/></svg>
-            LinkedIn
-          </a>
-          <a class="btn" href="https://github.com/rfhickey" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-            GitHub
-          </a>
+          <a class="btn btn-primary" href="mailto:rfhickey@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/hickeyrobert/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="https://github.com/rfhickey" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
     </section>
 
-    <!-- --------------------------------------------------------- about -->
-    <section id="about" aria-labelledby="about-title">
+    <!-- ------------------------------------------------------- numbers -->
+    <section id="metrics" aria-labelledby="metrics-title">
       <div class="container">
-        <h2 class="section-title" id="about-title">About</h2>
-        <div class="prose">
-          <p>
-            I'm a Senior Data Analyst with more than 18 years of experience
-            spanning NGOs, higher education, financial technology, and
-            e-commerce. My focus is the full path from raw source to clear
-            answer: extracting, cleaning, transforming, and visualizing data so
-            teams can confidently answer the questions that matter.
-          </p>
-          <p>
-            I work hands-on across databases like PostgreSQL, Vertica,
-            BigQuery, and Snowflake, and with business intelligence tools
-            including Power BI, Tableau, and Domo. I have 8 years of experience
-            with SQL and 4 with Python for aggregating, manipulating, and
-            visualizing data, and I am increasingly applying modern AI tooling
-            (Snowflake Cortex, fine-tuned LLMs) to text and prediction problems.
-          </p>
+        <h2 class="section-title" id="metrics-title">By the numbers</h2>
+        <div class="stats" id="stats">
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="66">66</b>%</span>
+            <span class="stat-label">query costs cut</span>
+            <span class="stat-sub">by redesigning an AI sentiment pipeline in Snowflake</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="33000">33,000</b>+</span>
+            <span class="stat-label">conversations analyzed</span>
+            <span class="stat-sub">with AI sentiment, search, and classification models</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="45">45</b>%</span>
+            <span class="stat-label">negotiated off a vendor contract</span>
+            <span class="stat-sub">for a marketing analytics platform</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="18">18</b>+</span>
+            <span class="stat-label">years working with data</span>
+            <span class="stat-sub">across e-commerce, fintech, higher ed, and research</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="8">8</b>+</span>
+            <span class="stat-label">years of SQL</span>
+            <span class="stat-sub">PostgreSQL, Vertica, BigQuery, Snowflake</span>
+          </div>
+          <div class="stat reveal">
+            <span class="stat-num"><b class="num" data-target="4">4</b>+</span>
+            <span class="stat-label">years of Python</span>
+            <span class="stat-sub">churn models, LLM fine-tuning, classification</span>
+          </div>
         </div>
       </div>
     </section>
@@ -126,74 +286,50 @@
         <h2 class="section-title" id="exp-title">Experience</h2>
         <div class="timeline">
 
-          <article class="role">
-            <div class="role-head">
-              <h3 class="role-title">
-                Senior Data Analyst
-                <span class="role-company">&middot; Big Cartel</span>
-              </h3>
-              <span class="role-dates">Sep 2024 to Present</span>
-            </div>
-            <p class="role-location">Salt Lake City, Utah</p>
+          <article class="role reveal" id="role-bigcartel">
+            <h3>Senior Data Analyst &middot; Big Cartel</h3>
+            <p class="role-meta">Sep 2024 to present &middot; Salt Lake City, UT</p>
             <ul>
-              <li>Engineering an AI-powered sentiment analysis pipeline with Snowflake Cortex over 33,000+ customer conversations, cutting costs by 66% through efficient query design.</li>
-              <li>Building semantic search over user-generated text using Snowflake Cortex AI models.</li>
-              <li>Fine-tuning LLMs (mistral-7b) for business-specific applications.</li>
-              <li>Developing predictive models of subscriber churn.</li>
-              <li>Defining, maintaining, and improving data models and pipelines, and standardizing KPIs and data definitions across sources.</li>
-              <li>Owning analytics software procurement end to end, including a negotiated 45% reduction in the cost of a marketing analytics tool.</li>
+              <li data-skills="bigquery,snowflake,gcp,dbt,sql,git">Built GA4 to BigQuery and Snowflake ELT pipelines with a dbt transformation layer for marketing attribution, including automated bot and spam detection and cold-storage backups.</li>
+              <li data-skills="snowflake,sql,python">Engineered AI sentiment analysis, semantic search, and classification workflows across <b class="metric">33,000+</b> customer conversations, cutting query costs by <b class="metric">66%</b>.</li>
+              <li data-skills="python">Fine-tuned Mistral-7B for domain-specific applications and applied classification models to tag and organize unstructured customer data.</li>
+              <li data-skills="python,sql">Developed subscriber churn models and ran A/B testing and UX research to support product and retention decisions.</li>
+              <li data-skills="snowflake,gcp">Configured Meta Marketing API access and connectivity, enabling automated advertising-data extraction into Snowflake.</li>
+              <li data-skills="sql,dbt">Designed and maintained reusable data models and pipelines, standardized KPIs and data definitions, and established foundational governance and monitoring practices.</li>
+              <li data-skills="tableau">Managed Tableau Cloud licensing and usage, and developed self-service visualizations for stakeholders across the organization.</li>
+              <li data-skills="claude-code,sql,python,dbt">Used Claude Code to accelerate SQL, Python, dbt, and cloud workflow prototyping, debugging, documentation, and iterative refinement.</li>
+              <li data-skills="tableau">Led analytics software evaluation and procurement, negotiating a <b class="metric">45%</b> reduction in the cost of a marketing analytics platform.</li>
             </ul>
           </article>
 
-          <article class="role">
-            <div class="role-head">
-              <h3 class="role-title">
-                Product Analyst
-                <span class="role-company">&middot; MX Technologies</span>
-              </h3>
-              <span class="role-dates">Jun 2024 to Sep 2024</span>
-            </div>
-            <p class="role-location">Lehi, Utah</p>
+          <article class="role reveal" id="role-mx-pa">
+            <h3>Product Analyst &middot; MX Technologies</h3>
+            <p class="role-meta">Jun 2024 to Sep 2024 &middot; Lehi, UT</p>
             <ul>
-              <li>Improved user and developer engagement across mobile, personal financial management, and financial insights products.</li>
-              <li>Ensured the quality of the data pipelines those products rely on.</li>
-              <li>Built a Product Metrics Catalog to ensure consistency, transparency, and accuracy of data elements.</li>
-              <li>Developed self-serve tools and dashboards in Domo using dataflows and Domo Workbench.</li>
-              <li>Fielded ad hoc requests from the Investments, Marketing, and Product teams.</li>
+              <li data-skills="domo">Built a Product Metrics Catalog and self-service Domo dataflows and dashboards, improving the consistency, transparency, accuracy, and usability of product metrics.</li>
+              <li>Analyzed user and developer engagement across mobile, personal financial management, and financial insights products, partnering with Product, Marketing, and Investments teams on decision support.</li>
+              <li data-skills="sql">Monitored the quality of product data pipelines and prepared executive-ready presentations highlighting wins, risks, and emerging challenges.</li>
             </ul>
           </article>
 
-          <article class="role">
-            <div class="role-head">
-              <h3 class="role-title">
-                Data Analyst
-                <span class="role-company">&middot; MX Technologies</span>
-              </h3>
-              <span class="role-dates">May 2022 to Jun 2024</span>
-            </div>
-            <p class="role-location">Lehi, Utah</p>
+          <article class="role reveal" id="role-mx-da">
+            <h3>Data Analyst &middot; MX Technologies</h3>
+            <p class="role-meta">May 2022 to Jun 2024 &middot; Lehi, UT</p>
             <ul>
-              <li>Developed a novel methodology for identifying and fixing bank account data quality issues from web scrapes and third-party providers.</li>
-              <li>Piloted a process for increasing merchant tagging efficiency and coverage across billions of transactions.</li>
-              <li>Built and owned a process to turn data auditing insights into system improvements, and resolved blockers for the data enhancement audit team.</li>
-              <li>Worked primarily in Google BigQuery and SQL with Tableau, Git, GitLab, regular expressions, and VS Code.</li>
+              <li data-skills="sql,bigquery">Designed a methodology to identify and remediate bank-account data-quality issues from web scrapes and third-party providers, converting audit findings into repeatable system improvements.</li>
+              <li data-skills="bigquery,sql,tableau,git,gitlab,regex">Piloted a scalable process that increased merchant-tagging efficiency and coverage across <b class="metric">billions</b> of transactions using BigQuery, SQL, Tableau, Git, GitLab, and regular expressions.</li>
+              <li>Owned a workflow that translated escalated client issues and data-auditing insights into improvements to the data-enhancement stack.</li>
+              <li>Resolved technical and process blockers for the audit team and supported Sales analysis focused on client retention and growth.</li>
             </ul>
           </article>
 
-          <article class="role">
-            <div class="role-head">
-              <h3 class="role-title">
-                Data Analyst
-                <span class="role-company">&middot; Western Governors University</span>
-              </h3>
-              <span class="role-dates">Aug 2020 to May 2022</span>
-            </div>
-            <p class="role-location">Salt Lake City, Utah</p>
+          <article class="role reveal" id="role-wgu">
+            <h3>Data Analyst &middot; Western Governors University</h3>
+            <p class="role-meta">Aug 2020 to May 2022 &middot; Salt Lake City, UT</p>
             <ul>
-              <li>Created intuitive dashboards, cleaned and transformed data, and automated processes for academic programs.</li>
-              <li>Automated the tracking of student progress and interventions at key program milestones.</li>
-              <li>Built and maintained Power BI dashboards (Power Query, dataflows) that gave leadership actionable, data-driven insights.</li>
-              <li>Led ad hoc analytics projects for leadership and helped grow an in-house analytics community through knowledge sharing and SQL optimization.</li>
+              <li data-skills="sql,powerbi,databricks">Promoted from Associate Data Analyst within 6 months; built, deployed, and maintained <b class="metric">9</b> Power BI dashboards using SQL, Databricks, DAX, Power Query, row-level security, and scheduled refreshes.</li>
+              <li>Automated student milestone tracking and interventions, and delivered analytics solutions across Dynamics 365, Salesforce, and Smartsheet.</li>
+              <li data-skills="sql">Defined data requirements, mapped business processes, and led ad hoc analytics projects for leadership while supporting peers through SQL optimization and dashboard troubleshooting.</li>
             </ul>
           </article>
 
@@ -201,48 +337,55 @@
       </div>
     </section>
 
-    <!-- --------------------------------------------------------- skills -->
+    <!-- -------------------------------------------------------- skills -->
     <section id="skills" aria-labelledby="skills-title">
       <div class="container">
-        <h2 class="section-title" id="skills-title">Skills &amp; Tools</h2>
+        <h2 class="section-title" id="skills-title">Skills</h2>
+        <p class="section-intro">Tap a glowing skill to light up everywhere it shows in my experience. Esc clears.</p>
+        <div class="filter-bar" id="filter-bar" hidden>
+          <span id="filter-label"></span>
+          <button id="copy-link" class="head-btn" type="button">copy link to this view</button>
+          <button id="clear-filter" class="head-btn" type="button">clear</button>
+        </div>
+        <div aria-live="polite" class="visually-hidden" id="filter-status"></div>
         <div class="skill-groups">
-          <div class="skill-group">
+          <div class="skill-group reveal">
             <h3>Languages</h3>
             <ul class="chips">
-              <li>SQL</li>
-              <li>Python</li>
-              <li>Regular expressions</li>
+              <li><button type="button" class="skill-btn" data-skill="sql" aria-pressed="false">SQL</button></li>
+              <li><button type="button" class="skill-btn" data-skill="python" aria-pressed="false">Python</button></li>
+              <li><button type="button" class="skill-btn" data-skill="regex" aria-pressed="false">Regular expressions</button></li>
             </ul>
           </div>
-          <div class="skill-group">
-            <h3>Platforms &amp; databases</h3>
+          <div class="skill-group reveal">
+            <h3>Warehouses &amp; platforms</h3>
             <ul class="chips">
-              <li>Snowflake</li>
-              <li>BigQuery</li>
-              <li>GCP</li>
-              <li>Databricks</li>
-              <li>PostgreSQL</li>
-              <li>Vertica</li>
-              <li>dbt</li>
+              <li><button type="button" class="skill-btn" data-skill="snowflake" aria-pressed="false">Snowflake</button></li>
+              <li><button type="button" class="skill-btn" data-skill="bigquery" aria-pressed="false">BigQuery</button></li>
+              <li><button type="button" class="skill-btn" data-skill="gcp" aria-pressed="false">GCP</button></li>
+              <li><button type="button" class="skill-btn" data-skill="databricks" aria-pressed="false">Databricks</button></li>
+              <li><span class="chip-plain">PostgreSQL</span></li>
+              <li><span class="chip-plain">Vertica</span></li>
             </ul>
           </div>
-          <div class="skill-group">
-            <h3>BI &amp; visualization</h3>
+          <div class="skill-group reveal">
+            <h3>Transformation &amp; BI</h3>
             <ul class="chips">
-              <li>Power BI</li>
-              <li>Tableau</li>
-              <li>Domo</li>
-              <li>MS Excel</li>
+              <li><button type="button" class="skill-btn" data-skill="dbt" aria-pressed="false">dbt</button></li>
+              <li><button type="button" class="skill-btn" data-skill="powerbi" aria-pressed="false">Power BI</button></li>
+              <li><button type="button" class="skill-btn" data-skill="tableau" aria-pressed="false">Tableau</button></li>
+              <li><button type="button" class="skill-btn" data-skill="domo" aria-pressed="false">Domo</button></li>
+              <li><span class="chip-plain">Excel</span></li>
             </ul>
           </div>
-          <div class="skill-group">
-            <h3>Tools &amp; workflow</h3>
+          <div class="skill-group reveal">
+            <h3>Tooling</h3>
             <ul class="chips">
-              <li>Git</li>
-              <li>GitLab</li>
-              <li>VS Code</li>
-              <li>Claude Code</li>
-              <li>DBeaver</li>
+              <li><button type="button" class="skill-btn" data-skill="git" aria-pressed="false">Git</button></li>
+              <li><button type="button" class="skill-btn" data-skill="gitlab" aria-pressed="false">GitLab</button></li>
+              <li><button type="button" class="skill-btn" data-skill="claude-code" aria-pressed="false">Claude Code</button></li>
+              <li><span class="chip-plain">VS Code</span></li>
+              <li><span class="chip-plain">DBeaver</span></li>
             </ul>
           </div>
         </div>
@@ -252,90 +395,79 @@
     <!-- ------------------------------------------------------ education -->
     <section id="education" aria-labelledby="edu-title">
       <div class="container">
-        <h2 class="section-title" id="edu-title">Education</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>PhD, Energy Economics</h3>
-            <p class="sub">International Business School, Bulgaria</p>
-          </article>
-          <article class="card">
-            <h3>MA, Public Policy and Governance</h3>
-            <p class="sub">New Bulgarian University, Bulgaria</p>
-          </article>
-          <article class="card">
-            <h3>BA, European History and Political Science</h3>
-            <p class="sub">University of Vermont</p>
-          </article>
-        </div>
+        <h2 class="section-title" id="edu-title">Education &amp; certifications</h2>
+        <ul class="seed-list">
+          <li class="reveal"><span class="seed-name">PhD, Energy Economics</span> <span class="seed-inst">International Business School, Bulgaria</span></li>
+          <li class="reveal"><span class="seed-name">MA, Public Policy and Governance</span> <span class="seed-inst">New Bulgarian University</span></li>
+          <li class="reveal"><span class="seed-name">BA, European History and Political Science</span> <span class="seed-inst">University of Vermont</span></li>
+          <li class="reveal"><span class="seed-name">Data Analyst Learning Path</span> <span class="seed-inst">Google Cloud Skills Boost</span></li>
+          <li class="reveal"><span class="seed-name">Data Analyst Nanodegree</span> <span class="seed-inst">Udacity</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- -------------------------------------------------- certifications -->
-    <section id="certifications" aria-labelledby="cert-title">
+    <!-- -------------------------------------------------------- origin -->
+    <section id="origin" aria-labelledby="origin-title">
       <div class="container">
-        <h2 class="section-title" id="cert-title">Certifications</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Data Analyst Learning Path</h3>
-            <p class="sub">Google Cloud Skills Boost</p>
-          </article>
-          <article class="card">
-            <h3>Data Analyst Nanodegree</h3>
-            <p class="sub">Udacity</p>
-          </article>
+        <h2 class="section-title" id="origin-title">The road here</h2>
+        <div class="prose reveal">
+          <p>
+            Before analytics: European history and political science at the University
+            of Vermont, then most of a decade in Bulgaria for policy research, an MA in
+            public policy, and a PhD in energy economics. Years of editing followed,
+            from academic manuscripts and popular science writing to assessments at
+            Western Governors University. The common thread never changed: take
+            something raw and complicated, find the structure in it, and make it
+            legible. In 2020 I made that the entire job, moving into analytics at WGU,
+            then MX, then Big Cartel.
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ----------------------------------------------------- interests --
-      Hidden for now: the resume did not cover interests/projects. To enable,
-      remove this comment wrapper, add your content, and add a matching
-      <a href="#interests">Interests</a> link in the nav above.
-
-    <section id="interests" aria-labelledby="interests-title">
-      <div class="container">
-        <h2 class="section-title" id="interests-title">Interests &amp; Projects</h2>
-        <div class="prose">
-          <p>Add a few lines about what you build or care about outside of work,
-             plus links to any side projects you want to show.</p>
-        </div>
-      </div>
-    </section>
-    -->
-
-    <!-- -------------------------------------------------------- contact -->
+    <!-- ------------------------------------------------------- contact -->
     <section id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <h2 class="section-title" id="contact-title">Contact</h2>
-        <div class="prose">
-          <p>The best ways to reach me:</p>
-        </div>
-        <div class="contact-row">
-          <a class="btn btn-primary" href="mailto:rfhickey@gmail.com">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
-            Email
+        <h2 class="section-title" id="contact-title">Get in touch</h2>
+        <div class="exposures">
+          <a class="exposure-card reveal" href="mailto:rfhickey@gmail.com">
+            <span class="exposure-kind">Email</span>
+            <span class="exposure-url">rfhickey@gmail.com</span>
           </a>
-          <a class="btn" href="https://www.linkedin.com/in/hickeyrobert/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V10.5H5.86v7.84h2.48zM7.1 9.4a1.44 1.44 0 1 0 0-2.88 1.44 1.44 0 0 0 0 2.88zm11.24 8.94v-4.3c0-2.3-1.23-3.37-2.87-3.37a2.48 2.48 0 0 0-2.24 1.23v-1.06h-2.48c.03.7 0 7.84 0 7.84h2.48v-4.38c0-.23.02-.46.09-.62.18-.46.6-.94 1.32-.94.93 0 1.3.71 1.3 1.75v4.19h2.48z"/></svg>
-            LinkedIn
+          <a class="exposure-card reveal" href="https://www.linkedin.com/in/hickeyrobert/" target="_blank" rel="noopener">
+            <span class="exposure-kind">LinkedIn</span>
+            <span class="exposure-url">linkedin.com/in/hickeyrobert</span>
           </a>
-          <a class="btn" href="https://github.com/rfhickey" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.79 2.73 1.27 3.4.97.1-.76.41-1.27.74-1.56-2.55-.29-5.23-1.27-5.23-5.67 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.66.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/></svg>
-            GitHub
+          <a class="exposure-card reveal" href="https://github.com/rfhickey" target="_blank" rel="noopener">
+            <span class="exposure-kind">GitHub</span>
+            <span class="exposure-url">github.com/rfhickey</span>
           </a>
         </div>
+        <p class="print-row"><button class="head-btn" type="button" data-print>Save as PDF</button></p>
       </div>
     </section>
   </main>
 
   <!-- -------------------------------------------------------- footer -->
   <footer class="footer">
-    <div class="container">
-      <span>&copy; <span id="year">2026</span> Robert Hickey</span>
-      <span>Built with plain HTML &amp; CSS, hosted on GitHub Pages.</span>
+    <div class="container footer-inner">
+      <span>&copy; <span id="year">2026</span> Robert Hickey &middot; built by hand with HTML, CSS, and JavaScript</span>
+      <button id="console-open" class="head-btn" type="button" aria-label="Open console">$_</button>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- ------------------------------------------------------- console -->
+  <section id="console" class="console" hidden aria-label="Interactive console">
+    <div class="console-head">
+      <span aria-hidden="true">rfhickey@site:~$ (type help)</span>
+      <button id="console-close" class="head-btn" type="button" aria-label="Close console">close</button>
+    </div>
+    <div id="console-out" class="console-out" aria-live="polite"></div>
+    <div class="console-line">
+      <span class="ps1" aria-hidden="true">$</span>
+      <input id="console-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false"
+             aria-label="Console input. Type help for available commands." />
+    </div>
+  </section>
 </body>
 </html>

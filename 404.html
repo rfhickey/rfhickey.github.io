@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page not found &middot; Robert Hickey</title>
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <meta name="theme-color" content="#030805" />
+  <script>
+    try {
+      if (localStorage.getItem("rh-mode") === "plain") {
+        document.documentElement.setAttribute("data-theme", "plain");
+        var tc = document.querySelector('meta[name="theme-color"]');
+        if (tc) tc.setAttribute("content", "#f7f8f7");
+      }
+    } catch (e) {}
+  </script>
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="stylesheet" href="/styles.css" />
   <style>
-    .nf { min-height: 70vh; display: flex; align-items: center; }
-    .nf .container { text-align: center; }
-    .nf h1 { font-size: clamp(3rem, 12vw, 6rem); margin: 0; letter-spacing: -0.03em; }
-    .nf p { color: var(--muted); font-size: 1.15rem; margin: 0.5rem 0 1.75rem; }
+    .nf { min-height: 80vh; display: flex; align-items: center; }
+    .nf .container { max-width: 640px; }
+    .nf h1 { color: var(--accent); font-size: clamp(2.5rem, 10vw, 5rem); margin: 0 0 0.5rem; text-shadow: var(--glow-text); }
+    .nf pre { color: var(--dim); font-size: 0.9rem; white-space: pre-wrap; margin: 0 0 1.5rem; }
   </style>
 </head>
 <body>
   <main class="nf">
     <div class="container">
       <h1>404</h1>
-      <p>That page wandered off. Let's get you back.</p>
-      <a class="btn btn-primary" href="/">Back to home</a>
+      <pre>ERROR: relation "this_page" does not exist
+HINT:  perhaps you meant the mart, not the staging table.</pre>
+      <a class="head-btn" href="/">$ cd ~/</a>
     </div>
   </main>
-  <script src="/script.js"></script>
 </body>
 </html>
