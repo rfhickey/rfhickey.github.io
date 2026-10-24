@@ -45,7 +45,9 @@ metric value is baked into the HTML and the scripts only decorate.
 - **Recruiter mode**: header toggle that swaps to a high-legibility light
   theme and kills all effects, persisted in `localStorage`.
 - **Print**: the "Save as PDF" button (or Ctrl+P) produces a clean
-  black-on-white one-to-two page resume with link URLs printed.
+  black-on-white resume of about three pages with link URLs printed. A long
+  role may continue on the next page, but its heading always stays with its
+  first bullet and no bullet splits across pages.
 
 ## Editing content
 
