@@ -263,7 +263,8 @@
 
     var DB = {
       experience: [
-        { role: "Senior Data Analyst", company: "Big Cartel", start_date: "2024-09", end_date: "present", location: "Salt Lake City, UT", highlight: "AI analysis of 33,000+ conversations at 66% lower query cost" },
+        { role: "Senior Data Analyst (Lead)", company: "Macabacus", start_date: "2026-09", end_date: "present", location: "Salt Lake City, UT", highlight: "AI-ready analytics foundation: semantic layer, Azure SQL warehouse, Azure DevOps pipelines" },
+        { role: "Senior Data Analyst", company: "Big Cartel", start_date: "2024-09", end_date: "2026-09", location: "Salt Lake City, UT", highlight: "AI analysis of 33,000+ conversations at 66% lower query cost" },
         { role: "Product Analyst", company: "MX Technologies", start_date: "2024-06", end_date: "2024-09", location: "Lehi, UT", highlight: "Product Metrics Catalog and self-service Domo dashboards" },
         { role: "Data Analyst", company: "MX Technologies", start_date: "2022-05", end_date: "2024-06", location: "Lehi, UT", highlight: "merchant tagging across billions of transactions in BigQuery" },
         { role: "Data Analyst", company: "Western Governors University", start_date: "2020-08", end_date: "2022-05", location: "Salt Lake City, UT", highlight: "9 Power BI dashboards, promoted from associate in 6 months" },
@@ -284,6 +285,7 @@
         { column: "bigquery", type: "warehouse", years: "", seen_in: "MX, Big Cartel" },
         { column: "postgresql", type: "warehouse", years: "", seen_in: "earlier roles" },
         { column: "vertica", type: "warehouse", years: "", seen_in: "earlier roles" },
+        { column: "azure_sql", type: "warehouse", years: "", seen_in: "Macabacus" },
         { column: "gcp", type: "platform", years: "", seen_in: "Big Cartel" },
         { column: "databricks", type: "platform", years: "", seen_in: "WGU" },
         { column: "dbt", type: "transformation", years: "", seen_in: "Big Cartel" },
@@ -295,6 +297,7 @@
         { column: "gitlab", type: "tooling", years: "", seen_in: "MX" },
         { column: "vs_code", type: "tooling", years: "", seen_in: "MX, Big Cartel" },
         { column: "claude_code", type: "tooling", years: "", seen_in: "Big Cartel" },
+        { column: "azure_devops", type: "tooling", years: "", seen_in: "Macabacus" },
         { column: "dbeaver", type: "tooling", years: "", seen_in: "MX, Big Cartel" }
       ],
       education: [
@@ -526,8 +529,12 @@
       var btn = $('.skill-btn[data-skill="' + skill + '"]');
       if (btn) {
         filterApi.apply(skill);
+        /* land on the first highlighted bullet, not the section top: the
+           newest role may have nothing highlighted for the chosen skill */
+        var first = $("#experience li.match");
         var exp = $("#experience");
-        if (exp) exp.scrollIntoView();
+        if (first) first.scrollIntoView({ block: "center" });
+        else if (exp) exp.scrollIntoView();
         return;
       }
     }
